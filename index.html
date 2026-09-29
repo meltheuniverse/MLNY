@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MLNY | Social Media, Content, Editing + More</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Roboto+Mono:ital,wght@0,500;0,700;1,500&family=Silkscreen:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{--plum:#4d3a44;--pink:#eba7cd;--blush:#f3bcd7;--berry:#a03667;--ink:#161616;--grey:#d9d9d9;--paper:#f7f6f6;
+
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--grey:#3a2d34;--paper:#f7f6f6}}
+:root[data-theme="dark"]{--grey:#3a2d34}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box;margin:0;cursor:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAA70lEQVR4nO3X0RGDMAgAUOp1AZZwEqdxIFfoEq7QBVyhHxkh/Sm9XAxGDJC7Xvk03vFAEhXgH59AxNgj79AbMeQXvBE7gDdiB9iW1RVR7IAnogggxLas5ggWkEIQMVpBqgBCANg8klMAS8RpgBVCBLBAiAGE0NohlwAppBXRBNBA3CU3j/PEriFiDCHcpIBqB9KkNIBHCGk3DjvAVXylUi7YDqTJ8y6YnwOUULNSLr4J8qrS5LSWzsA4TyrAYgc8KmcBpeR0LR9K9ZNQUnltS6oH7XFEjK/HM2p9pIieNZewZWaa3wWeAwsA/X7hfjfeijhx1T8JI40AAAAASUVORK5CYII=") 2 2,default}
+a,button,.folder,.menu li{cursor:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAA70lEQVR4nO3X0RGDMAgAUOp1AZZwEqdxIFfoEq7QBVyhHxkh/Sm9XAxGDJC7Xvk03vFAEhXgH59AxNgj79AbMeQXvBE7gDdiB9iW1RVR7IAnogggxLas5ggWkEIQMVpBqgBCANg8klMAS8RpgBVCBLBAiAGE0NohlwAppBXRBNBA3CU3j/PEriFiDCHcpIBqB9KkNIBHCGk3DjvAVXylUi7YDqTJ8y6YnwOUULNSLr4J8qrS5LSWzsA4TyrAYgc8KmcBpeR0LR9K9ZNQUnltS6oH7XFEjK/HM2p9pIieNZewZWaa3wWeAwsA/X7hfjfeijhx1T8JI40AAAAASUVORK5CYII=") 2 2,pointer}
+body{background:var(--plum);color:var(--ink);font-family:'Roboto Mono',monospace;overflow-x:hidden}
+.px{font-family:'Silkscreen',monospace;color:var(--pink);letter-spacing:.06em}
+:focus-visible{outline:3px solid var(--pink);outline-offset:3px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px clamp(18px,5vw,56px);position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--plum)}
+nav .px{font-size:26px;text-decoration:none}
+nav div{display:flex;gap:22px;flex-wrap:wrap}
+nav a:not(.px){color:var(--blush);text-decoration:none;font-size:14px;font-weight:700}
+nav a:not(.px):hover{color:#fff;text-decoration:underline wavy}
+/* hero */
+.hero{position:relative;text-align:center;padding:60px clamp(18px,5vw,56px) 0;max-width:1100px;margin:auto}
+.year{position:absolute;right:clamp(10px,4vw,40px);top:0;width:110px}
+.ctx{display:inline-flex;background:#fff;border-radius:12px;box-shadow:0 8px 20px #0004;position:relative;font-family:Arial,sans-serif;font-size:17px;margin-bottom:26px}
+.ctx span{padding:12px 22px;border-right:1px solid #ddd}.ctx span:last-child{border:0}
+.ctx:after{content:"";position:absolute;left:38%;bottom:-11px;border:12px solid transparent;border-bottom:0;border-top-color:#fff}
+h1{font-family:'Archivo Black',sans-serif;color:var(--pink);font-size:clamp(46px,10.5vw,124px);line-height:.98;letter-spacing:-.03em;font-weight:400}
+.sub{color:var(--blush);font-size:clamp(15px,2.6vw,28px);margin:22px 0 40px;font-family:Arial,sans-serif;letter-spacing:-.02em}
+.heroRow{display:flex;justify-content:center;align-items:flex-start;gap:40px;flex-wrap:wrap;text-align:left}
+.folder{width:150px;background:none;border:0;text-align:center;color:var(--blush);font:700 13px 'Roboto Mono'}
+.folder i{display:block;height:100px;background:var(--pink);border-radius:8px 8px 10px 10px;position:relative;margin-top:14px;transition:transform .15s}
+.folder i:before{content:"";position:absolute;left:0;top:-14px;width:55%;height:16px;background:var(--pink);border-radius:8px 8px 0 0;filter:brightness(.93)}
+.folder:hover i{transform:translateY(-4px) rotate(-2deg)}
+.menu{list-style:none;background:var(--paper);border-radius:22px;padding:14px 24px;width:min(360px,100%);box-shadow:0 8px 24px #0004;font-family:Arial,sans-serif;font-size:21px}
+.menu li{padding:12px 0;border-bottom:2px solid #ddd}.menu li:last-child{border:0}
+.menu li:hover,.menu li.on{background:linear-gradient(var(--pink),var(--pink)) 0 50%/auto 80% no-repeat;width:max-content;padding-right:14px}
+.polas{display:flex;justify-content:center;align-items:flex-end;margin-top:50px;position:relative;height:250px;overflow:hidden}
+.pola{background:#fff;padding:8px 8px 0;box-shadow:0 6px 18px #0006;flex:0 0 min(250px,30vw)}
+.pola div{height:220px;display:grid;place-items:center;font-size:44px;text-align:center}
+.pola small{display:block;font-size:11px;font-weight:700;padding:6px 0;color:var(--berry)}
+.pola:nth-child(1){transform:rotate(-4deg) translateX(20px);background:#fff}.pola:nth-child(1) div{background:#e9e4e4}
+.pola:nth-child(2){transform:translateY(-14px);z-index:2;flex-basis:min(340px,38vw)}.pola:nth-child(2) div{background:var(--berry);color:var(--pink)}
+.pola:nth-child(3){transform:rotate(4deg) translateX(-20px)}.pola:nth-child(3) div{background:#2a2a2e}
+.tray{background:var(--pink);border-radius:26px 26px 0 0;height:120px;display:grid;place-items:center;max-width:1000px;margin:-40px auto 0;position:relative;z-index:3}
+.tray .px{color:#fff;font-size:34px}
+/* services */
+.svc{background:var(--pink);padding:80px clamp(18px,5vw,56px) 40px}
+.svc h2,.cta h2{font-family:'Archivo Black';font-weight:400;font-size:clamp(34px,6vw,64px);color:var(--plum);letter-spacing:-.02em;text-align:center;margin-bottom:8px}
+.svc>p{text-align:center;margin-bottom:46px;font-weight:700;color:var(--plum)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:36px;max-width:1150px;margin:auto}
+.win{background:var(--paper);border-radius:14px;padding:0 0 26px;position:relative;min-height:400px;box-shadow:0 10px 0 var(--berry);display:flex;flex-direction:column;transition:transform .15s}
+.win:hover{transform:translate(-3px,-3px)}
+.bar{height:34px;display:flex;gap:9px;align-items:center;padding-left:16px}
+.bar b{width:13px;height:13px;border-radius:50%;background:var(--pink)}
+.win .logo{position:absolute;right:16px;top:8px;font-size:15px}
+.win h3{font-size:clamp(28px,4.4vw,40px);font-weight:700;padding:34px 22px 0;line-height:1.1;position:relative}
+.win h3 em{display:inline-block;margin:8px 0 0;background:var(--blush);font-weight:500;padding:6px 12px 6px 10px;border-left:3px solid var(--berry);border-right:3px solid var(--berry);position:relative}
+.win h3 em:before,.win h3 em:after{content:"";position:absolute;width:14px;height:14px;background:var(--berry);border-radius:50%}
+.win h3 em:before{left:-9px;top:-9px}.win h3 em:after{right:-9px;bottom:-9px}
+.win p{padding:26px 22px 0;font-weight:700;font-size:clamp(15px,2.4vw,19px);line-height:1.6;text-transform:uppercase;flex:1}
+.tag{align-self:flex-end;margin:16px 22px 0 0;text-align:center;font-size:12px;font-weight:500}
+.tag i{display:block;width:90px;height:56px;background:linear-gradient(#e8a1c6,var(--berry));border-radius:6px;border-top:9px solid #fff}
+/* cta */
+.cta{background:#fff;position:relative;margin-top:0;padding:0 0 90px}
+.cta .top{background:var(--grey);height:52px;display:flex;align-items:center;gap:9px;padding-left:22px}
+.cta .top b{width:14px;height:14px;border-radius:50%;background:#555}
+.cta .file{padding:18px 26px;border-bottom:2px solid #aaa;font-family:Arial;font-weight:700;font-size:22px}
+.cta .file span{display:block;font-weight:400;font-size:16px;color:#555}
+.stage{position:relative;max-width:1100px;margin:auto;min-height:620px;display:grid;place-items:center;padding:40px 20px}
+.cta h2{color:#262626;font-family:Arial,sans-serif;font-weight:700;letter-spacing:-.04em;font-size:clamp(28px,5vw,54px);line-height:1.1;max-width:640px;margin:0 auto 40px}
+.cta .folder{background:none;border:0;position:absolute;color:#262626;width:130px}
+.cta .folder i{border-radius:10px}.cta .folder i:before{border-radius:10px 10px 0 0}
+.f1{left:4%;top:8%}.f1 i,.f4 i{background:#fdc9e0}.f2{right:4%;top:6%}.f2 i,.f5 i{background:#ffd34f}
+.f3{left:2%;top:45%}.f3 i,.f6 i{background:#a8d3ff}.f4{right:2%;top:47%}.f5{left:4%;bottom:8%}.f6{right:4%;bottom:8%}
+.big{display:inline-block;background:#fdc9e0;color:#262626;font:700 clamp(28px,5vw,52px) Arial;letter-spacing:-.04em;padding:16px 30px;text-decoration:none;position:relative}
+.big:hover{background:var(--pink)}
+@media(max-width:700px){.cta .folder{width:80px}.cta .folder i{height:56px}.ctx span{padding:10px 12px;font-size:13px}.year{width:70px}.polas{height:190px}.pola div{height:150px}}
+footer{background:var(--plum);text-align:center;padding:36px 20px;color:var(--blush);font-size:13px}
+footer .px{font-size:28px;display:block;margin-bottom:10px}
+footer a{color:var(--pink)}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+.desk{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:34px 20px;max-width:900px;margin:auto;padding-bottom:50px}
+.desk .folder{color:var(--plum);width:100%}.desk .folder i{height:110px;background:var(--plum)}.desk .folder i:before{background:var(--plum)}
+.desk .folder:hover i{background:var(--berry)}.desk .folder:hover i:before{background:var(--berry)}
+.modal{position:fixed;inset:0;background:#2b1a2388;display:none;place-items:center;padding:20px;z-index:20;backdrop-filter:blur(3px)}
+.modal.show{display:grid}
+.modal .win{width:min(520px,100%);min-height:0;box-shadow:0 10px 0 var(--berry),0 20px 50px #0007;animation:pop .18s ease-out}
+@keyframes pop{from{transform:scale(.9);opacity:0}}
+.modal .win p{flex:none;padding-bottom:20px}
+.x{position:absolute;left:12px;top:9px;width:16px;height:16px;border-radius:50%;background:var(--berry);border:0;padding:0}
+.x:hover{background:#d24a8a}
+.modal .bar b:first-child{visibility:hidden}
+.go{margin:0 22px;align-self:flex-start;background:var(--blush);border:2px solid var(--ink);padding:10px 16px;font:700 15px 'Roboto Mono';text-decoration:none;color:var(--ink)}
+.go:hover{background:var(--pink)}
+.more{list-style:none;padding:26px 22px 0}.more li{padding:12px 0;border-bottom:2px solid #ddd;font:700 19px Arial}.more li:hover{color:var(--berry)}
+.frm{padding:22px 22px 0;display:grid;gap:14px}
+.frm label{font-weight:700;font-size:13px;display:grid;gap:6px}
+.frm input,.frm select,.frm textarea{font:500 15px 'Roboto Mono';padding:11px 12px;border:2px solid var(--ink);background:#fff;color:var(--ink);border-radius:0;width:100%}
+.frm textarea{min-height:110px;resize:vertical}
+.frm input:focus,.frm select:focus,.frm textarea:focus{outline:3px solid var(--pink);border-color:var(--berry)}
+.frm button.go{margin:0;border:2px solid var(--ink);justify-self:start}
+.thx{padding:26px 22px 0;font-weight:700;line-height:1.6}
+.modal .win.wide{max-height:92vh;overflow:auto}
+html,body,*,*::before,*::after{cursor:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAA70lEQVR4nO3X0RGDMAgAUOp1AZZwEqdxIFfoEq7QBVyhHxkh/Sm9XAxGDJC7Xvk03vFAEhXgH59AxNgj79AbMeQXvBE7gDdiB9iW1RVR7IAnogggxLas5ggWkEIQMVpBqgBCANg8klMAS8RpgBVCBLBAiAGE0NohlwAppBXRBNBA3CU3j/PEriFiDCHcpIBqB9KkNIBHCGk3DjvAVXylUi7YDqTJ8y6YnwOUULNSLr4J8qrS5LSWzsA4TyrAYgc8KmcBpeR0LR9K9ZNQUnltS6oH7XFEjK/HM2p9pIieNZewZWaa3wWeAwsA/X7hfjfeijhx1T8JI40AAAAASUVORK5CYII=") 2 2,default!important}
+a,button,[data-open],[data-work],[data-t],.folder,.menu li,.more li,select,label,input[type=submit]{cursor:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAA70lEQVR4nO3X0RGDMAgAUOp1AZZwEqdxIFfoEq7QBVyhHxkh/Sm9XAxGDJC7Xvk03vFAEhXgH59AxNgj79AbMeQXvBE7gDdiB9iW1RVR7IAnogggxLas5ggWkEIQMVpBqgBCANg8klMAS8RpgBVCBLBAiAGE0NohlwAppBXRBNBA3CU3j/PEriFiDCHcpIBqB9KkNIBHCGk3DjvAVXylUi7YDqTJ8y6YnwOUULNSLr4J8qrS5LSWzsA4TyrAYgc8KmcBpeR0LR9K9ZNQUnltS6oH7XFEjK/HM2p9pIieNZewZWaa3wWeAwsA/X7hfjfeijhx1T8JI40AAAAASUVORK5CYII=") 2 2,pointer!important}
+input,textarea{cursor:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAA70lEQVR4nO3X0RGDMAgAUOp1AZZwEqdxIFfoEq7QBVyhHxkh/Sm9XAxGDJC7Xvk03vFAEhXgH59AxNgj79AbMeQXvBE7gDdiB9iW1RVR7IAnogggxLas5ggWkEIQMVpBqgBCANg8klMAS8RpgBVCBLBAiAGE0NohlwAppBXRBNBA3CU3j/PEriFiDCHcpIBqB9KkNIBHCGk3DjvAVXylUi7YDqTJ8y6YnwOUULNSLr4J8qrS5LSWzsA4TyrAYgc8KmcBpeR0LR9K9ZNQUnltS6oH7XFEjK/HM2p9pIieNZewZWaa3wWeAwsA/X7hfjfeijhx1T8JI40AAAAASUVORK5CYII=") 2 2,text!important}
+</style>
+</head>
+<body>
+<nav><a class="px" href="#top">MLNY</a><div><a href="#services">Services</a><a href="#work">Work with us</a><a href="mailto:hello@mlny.co">Contact</a></div></nav>
+
+<header class="hero" id="top">
+  <svg class="year" viewBox="0 0 110 70" aria-hidden="true"><path d="M0 12a8 8 0 0 1 8-8h32l8 10h54v56H0z" fill="#a03667"/><rect y="20" width="110" height="50" rx="8" fill="var(--pink)"/><text x="55" y="52" text-anchor="middle" font-family="Silkscreen" font-size="20" fill="#fff">2026</text></svg>
+  <div class="ctx" aria-hidden="true"><span>Cut</span><span>Copy</span><span>Paste</span><span>Replace… ▸</span></div>
+  <h1>HOW TO WORK<br>WITH US</h1>
+  <p class="sub">SOCIAL MEDIA + CONTENT + EDITING + MORE</p>
+  <div class="heroRow">
+    <button class="folder" data-open="more" aria-label="Open services"><i></i>services</button>
+    <ul class="menu" id="menu">
+      <li class="on" data-t="mkt">SM marketing</li><li data-t="web">Web Development</li><li data-t="photo">Photography</li><li data-t="more">More…</li>
+    </ul>
+  </div>
+  <div class="polas" aria-hidden="true">
+    <div class="pola"><div>☕<br><small>CREATIVE AGENCY</small></div></div>
+    <div class="pola"><div>💻<br><small>desk_setup.jpg</small></div></div>
+    <div class="pola"><div>📷<br><small>shoot_day.jpg</small></div></div>
+  </div>
+  <div class="tray"><span class="px">MLNY</span></div>
+</header>
+
+<section class="svc" id="services">
+  <h2>What we do</h2><p>Double-click a folder to open it.</p>
+  <div class="desk">
+    <button class="folder" data-open="mgmt"><i></i>sm_mgmt</button>
+    <button class="folder" data-open="mkt"><i></i>sm_marketing</button>
+    <button class="folder" data-open="create"><i></i>Content_creation</button>
+    <button class="folder" data-open="edit"><i></i>Edits</button>
+    <button class="folder" data-open="photo"><i></i>Photography</button>
+    <button class="folder" data-open="web"><i></i>Web_dev</button>
+  </div>
+</section>
+
+<section class="cta" id="work">
+  <div class="top"><b></b><b></b><b></b></div>
+  <div class="file">mlny_new.file<span>2026</span></div>
+  <div class="stage">
+    <button class="folder f1" data-open="mgmt"><i></i>sm_mgmt</button><button class="folder f2" data-open="edit"><i></i>Edits</button>
+    <button class="folder f3" data-open="create"><i></i>Content_creation</button><button class="folder f4" data-open="photo"><i></i>Photography</button>
+    <button class="folder f5" data-open="web"><i></i>Web_dev</button><button class="folder f6" data-open="mkt"><i></i>sm_marketing</button>
+    <div style="text-align:center;position:relative;z-index:2">
+      <h2>So… what does your brand need? 👀 Social Media Management? Marketing? Content Creation? Website? Branding? You name it, we’ve got it.</h2>
+      <button class="big" data-work="" style="border:0">Work with us</button>
+    </div>
+  </div>
+</section>
+
+<footer><span class="px">MLNY</span>© 2026 MLNY · Social media, content, editing + more · <a href="mailto:hello@mlny.co">hello@mlny.co</a></footer>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true"></div>
+<script>
+const D={
+mgmt:['SOCIAL MEDIA','MANAGEMENT','Strategy. Content. Posting. Engagement. Growth.'],
+mkt:['SOCIAL MEDIA','MARKETING','We plan campaigns, target audiences & drive engagement.'],
+create:['CONTENT','CREATION','We plan the content. We film it. We edit it. We make it happen.'],
+edit:['CONTENT','EDITING','Your content, but better. We edit. You shine.'],
+photo:['MOBILE','PHOTOGRAPHY','Cute pics? Say less. You pose. We handle the rest.'],
+web:['WEB','DEVELOPMENT','We build your digital home. We create websites that connect.']};
+const M=document.getElementById('modal');
+const tag='<div class="tag"><i></i>CONTENT</div>';
+function open(k){
+  let h;
+  if(k==='more'){h='<div class="bar"><button class="x" aria-label="Close"></button></div><span class="px logo">MLNY</span><h3>ALL<br><em>SERVICES</em></h3><ul class="more">'+Object.keys(D).map(x=>'<li data-open="'+x+'">'+D[x][0]+' '+D[x][1]+'</li>').join('')+'</ul>'+tag;}
+  else{const d=D[k];h='<div class="bar"><button class="x" aria-label="Close"></button></div><span class="px logo">MLNY</span><h3>'+d[0]+'<br><em>'+d[1]+'</em></h3><p>'+d[2]+'</p><button class="go" data-work="'+k+'">Work with us</button>'+tag;}
+  M.innerHTML='<article class="win">'+h+'</article>';M.classList.add('show');M.querySelector('.x').focus();
+}
+const EMAIL='hello@mlny.co';
+function nm(k){return k&&D[k]?D[k][0]+' '+D[k][1]:''}
+function work(k){
+  const opts=Object.keys(D).map(x=>'<option value="'+x+'"'+(x===k?' selected':'')+'>'+nm(x)+'</option>').join('');
+  M.innerHTML='<article class="win wide"><div class="bar"><button class="x" aria-label="Close"></button></div><span class="px logo">MLNY</span><h3>WORK<br><em>WITH US</em></h3>'+
+  '<form class="frm" id="frm"><label>Your name<input name="n" required autocomplete="name"></label>'+
+  '<label>Your email<input name="e" type="email" required autocomplete="email"></label>'+
+  '<label>Service<select name="s" required><option value="" disabled'+(k?'':' selected')+'>Pick a service</option>'+opts+'</select></label>'+
+  '<label>Message<textarea name="m" required placeholder="Tell us about your brand and what you need."></textarea></label>'+
+  '<button class="go" type="submit">Send message</button></form>'+tag+'</article>';
+  M.classList.add('show');M.querySelector('input').focus();
+  document.getElementById('frm').addEventListener('submit',ev=>{
+    ev.preventDefault();const f=new FormData(ev.target),sv=nm(f.get('s'));
+    const body='Name: '+f.get('n')+'\nEmail: '+f.get('e')+'\nService: '+sv+'\n\n'+f.get('m');
+    window.location.href='mailto:'+EMAIL+'?subject='+encodeURIComponent('MLNY enquiry: '+sv)+'&body='+encodeURIComponent(body);
+    M.querySelector('.win').innerHTML='<div class="bar"><button class="x" aria-label="Close"></button></div><span class="px logo">MLNY</span><h3>ALMOST<br><em>THERE</em></h3><p class="thx" style="text-transform:none">Your email app should open with your message ready. Press send there to reach us. If nothing opened, write to '+EMAIL+' and mention '+sv+'.</p>'+tag;
+  });
+}
+function close(){M.classList.remove('show');M.innerHTML=''}
+document.addEventListener('click',e=>{
+  const w=e.target.closest('[data-work]');if(w){work(w.dataset.work);return}
+  const t=e.target.closest('[data-open],[data-t]');
+  if(t&&!(M.classList.contains('show')&&!M.contains(t))){open(t.dataset.open||t.dataset.t);return}
+  if(t){open(t.dataset.open||t.dataset.t);return}
+  if(e.target===M||e.target.closest('.x'))close();
+});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+document.querySelectorAll('#menu li').forEach(li=>li.addEventListener('click',()=>{
+  document.querySelectorAll('#menu li').forEach(x=>x.classList.remove('on'));li.classList.add('on')}));
+</script>
+</body>
+</html>
