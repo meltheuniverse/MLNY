@@ -26,7 +26,7 @@ nav a:not(.px):hover{color:#fff;text-decoration:underline wavy}
 .hero{position:relative;text-align:center;padding:60px clamp(18px,5vw,56px) 0;max-width:1100px;margin:auto}
 .year{position:absolute;right:clamp(10px,4vw,40px);top:0;width:110px}
 .ctx{display:inline-flex;background:#fff;border-radius:12px;box-shadow:0 8px 20px #0004;position:relative;font-family:Arial,sans-serif;font-size:17px;margin-bottom:26px}
-.ctx span{padding:12px 22px;border-right:1px solid #ddd}.ctx span:last-child{border:0}
+.ctx button{padding:12px 22px;border:0;border-right:1px solid #ddd;background:none;font:inherit;color:#111}.ctx button:last-of-type{border:0}.ctx button:hover,.ctx button.act{background:var(--blush)}.ctx button:first-child{border-radius:12px 0 0 12px}.ctx button:last-of-type{border-radius:0 12px 12px 0}
 .ctx:after{content:"";position:absolute;left:38%;bottom:-11px;border:12px solid transparent;border-bottom:0;border-top-color:#fff}
 h1{font-family:'Archivo Black',sans-serif;color:var(--pink);font-size:clamp(46px,10.5vw,124px);line-height:.98;letter-spacing:-.03em;font-weight:400}
 .sub{color:var(--blush);font-size:clamp(15px,2.6vw,28px);margin:22px 0 40px;font-family:Arial,sans-serif;letter-spacing:-.02em}
@@ -71,7 +71,7 @@ h1{font-family:'Archivo Black',sans-serif;color:var(--pink);font-size:clamp(46px
 .f3{left:2%;top:45%}.f3 i,.f6 i{background:#a8d3ff}.f4{right:2%;top:47%}.f5{left:4%;bottom:8%}.f6{right:4%;bottom:8%}
 .big{display:inline-block;background:#fdc9e0;color:#262626;font:700 clamp(28px,5vw,52px) Arial;letter-spacing:-.04em;padding:16px 30px;text-decoration:none;position:relative}
 .big:hover{background:var(--pink)}
-@media(max-width:700px){.cta .folder{width:80px}.cta .folder i{height:56px}.ctx span{padding:10px 12px;font-size:13px}.year{width:70px}}
+@media(max-width:700px){.cta .folder{width:80px}.cta .folder i{height:56px}.ctx button{padding:10px 12px;font-size:13px}.year{width:70px}}
 footer{background:var(--plum);text-align:center;padding:36px 20px;color:var(--blush);font-size:13px}
 footer .px{font-size:28px;display:block;margin-bottom:10px}
 footer a{color:var(--pink)}
@@ -116,6 +116,21 @@ input,textarea{cursor:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAA
 .cta .stage>div[style] .big{pointer-events:auto}
 @media(max-width:900px){.cta .stage>div[style]{padding:0 70px}.cta .folder{width:90px}}
 @media(max-width:560px){.cta .stage>div[style]{padding:0 8px}.cta .folder{width:84px}.f1,.f3,.f4{top:2%;bottom:auto}.f2,.f5,.f6{top:auto;bottom:2%}.f1,.f5{left:3%;right:auto}.f3,.f2{left:37%;right:auto}.f4,.f6{left:70%;right:auto}.stage{padding-top:150px;padding-bottom:150px}}
+.rep{list-style:none;position:absolute;right:0;top:calc(100% + 18px);background:#fff;border-radius:12px;box-shadow:0 8px 20px #0005;padding:6px;text-align:left;z-index:6;min-width:170px}
+.rep[hidden]{display:none}
+.rep li{padding:10px 14px;border-radius:8px;font-weight:700;font-size:15px;color:#111}
+.rep li:hover{background:var(--pink)}
+#hl{min-height:2em;transition:opacity .3s}
+#hl.sel span{background:var(--blush);color:var(--plum)}
+#hl.empty{opacity:.9}
+#hl.empty:after{content:"|";color:var(--blush);font-weight:400;animation:bl 1s steps(1) infinite}
+#hl.empty span{display:none}
+#hl.pop span{animation:pp .35s ease-out}
+@keyframes pp{from{opacity:0;transform:translateY(10px)}}
+@keyframes bl{50%{opacity:0}}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:#fff;color:#111;font:700 14px Arial;padding:11px 18px;border-radius:12px;box-shadow:0 8px 20px #0006;opacity:0;pointer-events:none;transition:.25s;z-index:30}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+a,button,.rep li{cursor:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAA70lEQVR4nO3X0RGDMAgAUOp1AZZwEqdxIFfoEq7QBVyhHxkh/Sm9XAxGDJC7Xvk03vFAEhXgH59AxNgj79AbMeQXvBE7gDdiB9iW1RVR7IAnogggxLas5ggWkEIQMVpBqgBCANg8klMAS8RpgBVCBLBAiAGE0NohlwAppBXRBNBA3CU3j/PEriFiDCHcpIBqB9KkNIBHCGk3DjvAVXylUi7YDqTJ8y6YnwOUULNSLr4J8qrS5LSWzsA4TyrAYgc8KmcBpeR0LR9K9ZNQUnltS6oH7XFEjK/HM2p9pIieNZewZWaa3wWeAwsA/X7hfjfeijhx1T8JI40AAAAASUVORK5CYII=") 2 2,pointer!important}
 </style>
 </head>
 <body>
@@ -123,8 +138,9 @@ input,textarea{cursor:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAA
 
 <header class="hero" id="top">
   <svg class="year" viewBox="0 0 110 70" aria-hidden="true"><path d="M0 12a8 8 0 0 1 8-8h32l8 10h54v56H0z" fill="#a03667"/><rect y="20" width="110" height="50" rx="8" fill="var(--pink)"/><text x="55" y="52" text-anchor="middle" font-family="Silkscreen" font-size="20" fill="#fff">2026</text></svg>
-  <div class="ctx" aria-hidden="true"><span>Cut</span><span>Copy</span><span>Paste</span><span>Replace… ▸</span></div>
-  <h1>HOW TO WORK<br>WITH US</h1>
+  <div class="ctx" role="toolbar" aria-label="Headline editor"><button data-a="cut">Cut</button><button data-a="copy">Copy</button><button data-a="paste">Paste</button><button data-a="rep" aria-haspopup="true">Replace… ▸</button>
+    <ul class="rep" id="rep" hidden><li data-v="WITH US">WITH US</li><li data-v="WITH YOU">WITH YOU</li><li data-v="TOGETHER">TOGETHER</li><li data-v="ON IT">ON IT</li></ul></div>
+  <h1 id="hl" aria-live="polite"><span id="l1">HOW TO WORK</span><br><span id="l2">WITH US</span></h1><div class="toast" id="toast" role="status"></div>
   <p class="sub">SOCIAL MEDIA + CONTENT + EDITING + MORE</p>
   <div class="heroRow">
     <button class="folder" data-open="more" aria-label="Open services"><i></i>services</button>
@@ -213,6 +229,27 @@ document.addEventListener('click',e=>{
   if(e.target===M||e.target.closest('.x'))close();
 });
 document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+
+(function(){
+const hl=document.getElementById('hl'),l1=document.getElementById('l1'),l2=document.getElementById('l2'),rep=document.getElementById('rep'),tt=document.getElementById('toast');
+let clip=null,tm;
+function toast(m){tt.textContent=m;tt.classList.add('on');clearTimeout(tm);tm=setTimeout(()=>tt.classList.remove('on'),1800)}
+function txt(){return [l1.textContent,l2.textContent]}
+function sel(ms,cb){hl.classList.add('sel');setTimeout(()=>{hl.classList.remove('sel');cb&&cb()},ms)}
+function show(a){l1.textContent=a[0];l2.textContent=a[1];hl.classList.remove('empty');hl.classList.remove('pop');void hl.offsetWidth;hl.classList.add('pop')}
+document.querySelector('.ctx').addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b)return;
+  const a=b.dataset.a;if(a!=='rep')rep.hidden=true;
+  if(a==='copy'){if(hl.classList.contains('empty'))return toast('Nothing to copy');clip=txt();try{navigator.clipboard.writeText(clip.join(' '))}catch(_){}sel(450);toast('Copied ✓')}
+  else if(a==='cut'){if(hl.classList.contains('empty'))return toast('Nothing to cut');clip=txt();try{navigator.clipboard.writeText(clip.join(' '))}catch(_){}sel(450,()=>hl.classList.add('empty'));toast('Cut ✂')}
+  else if(a==='paste'){if(!clip)return toast('Clipboard is empty. Try Cut or Copy first');show(clip);toast('Pasted ✓')}
+  else if(a==='rep'){if(hl.classList.contains('empty'))return toast('Paste the headline first');rep.hidden=!rep.hidden;b.classList.toggle('act',!rep.hidden)}
+});
+rep.addEventListener('click',e=>{const li=e.target.closest('li');if(!li)return;e.stopPropagation();
+  rep.hidden=true;document.querySelector('[data-a=rep]').classList.remove('act');
+  sel(350,()=>{l2.textContent=li.dataset.v;hl.classList.remove('pop');void hl.offsetWidth;hl.classList.add('pop')});toast('Replaced ✓')});
+document.addEventListener('click',e=>{if(!e.target.closest('.ctx')){rep.hidden=true;const r=document.querySelector('[data-a=rep]');r&&r.classList.remove('act')}});
+})();
 </script>
 </body>
 </html>
